@@ -12,7 +12,7 @@ const DUMMY_PRODUCTS = [
     id: "p2",
     price: 5,
     title: "My Second Book",
-    description: "the first book i ever wrote",
+    description: "the second book i ever wrote",
   },
 ];
 
@@ -21,11 +21,15 @@ const Products = (props) => {
     <section className={classes.products}>
       <h2>Buy your favorite products</h2>
       <ul>
-        <ProductItem
-          title={DUMMY_PRODUCTS.title}
-          price={DUMMY_PRODUCTS.price}
-          description={DUMMY_PRODUCTS.description}
-        />
+        {DUMMY_PRODUCTS.map((product) => (
+          <ProductItem
+            key={product.id}
+            id = {product.id}
+            title={product.title}
+            price={product.price}
+            description={product.description}
+          />
+        ))}
       </ul>
     </section>
   );
